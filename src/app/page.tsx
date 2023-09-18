@@ -22,14 +22,15 @@ export default function Page() {
     if(text.length <= 0){
       return
     }
-    console.log(todos)
     setTodos([...todos, text])
     //追加後にvalueを空にする
     setText('')
   }
 
-  const deleteTodo =()=>{
-    console.log('hello')
+  const deleteTodo =(index:number)=>{
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
   }
 
 
@@ -45,7 +46,7 @@ export default function Page() {
         <h2>やること</h2>
         <ul>
           {todos.map((item,index)=>(
-            <li key={index} id={`${index + 1}`}>
+            <li key={index} id={`${index}`}>
               {item}
               <button onClick={deleteTodo}>削除</button>
             </li>
