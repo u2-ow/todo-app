@@ -1,5 +1,4 @@
 'use client'
-import { todo } from 'node:test';
 import React, {  useState,useRef } from 'react'
 
 
@@ -27,9 +26,9 @@ export default function Page() {
     setText('')
   }
 
-  const deleteTodo =(index:number)=>{
+  const deleteTodo =(index: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
     const newTodos = [...todos];
-    newTodos.splice(index, 1);
+    newTodos.splice(Number(index), 1);
     setTodos(newTodos);
   }
 
